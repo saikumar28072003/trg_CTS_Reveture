@@ -1,0 +1,35 @@
+import java.util.Scanner;
+class alpha
+	{
+    public static void main(String[] args) 
+	{
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter a number of lines:");
+        int n = s.nextInt();
+        char S[]= {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'};
+        int index = 0; 
+        for (int i = 0; i < n; i++)
+			{
+            for (int j = 0; j < 5; j++)
+				{
+                if (j == i)
+					{ 
+                    System.out.print(S[index]);
+                    index++;
+                } 
+				else if (j == 4 - i) 
+					{
+                    System.out.print(S[index]);
+                    index++;
+                } 
+				else 
+				{
+                    
+                    System.out.print("_");
+                }
+            }
+            
+            System.out.println();
+        }
+    }
+}
