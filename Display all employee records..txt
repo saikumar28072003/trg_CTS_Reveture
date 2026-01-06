@@ -1,0 +1,130 @@
+Display all employee records.
+select * from emp;
+
+Display only employee ID, name, and department.
+select emp_id, emp_name,dept from emp;
+
+Display employee name and salary for all employees.
+select emp_name,sal from emp;
+
+Display employees whose salary is greater than 40,000.
+select * from emp where sal>40000;
+
+Display employees whose salary is less than or equal to 35,000.
+select * from emp where sal<=35000;
+
+Display employees whose salary is exactly 45,000.
+select * from emp where sal=45000;
+
+Display employees who joined after 01-Jan-2022.
+ select * from emp where joining_d >'01-Jan-2022';
+
+Display employees who joined before 01-Jan-2021.
+select * from emp where joining_d <'01-Jan-2021';
+
+Display employees whose salary is between 35,000 and 50,000.
+select * from emp where sal between 35000 and 50000 ;
+
+Display employees whose salary is not between 30,000 and 45,000.
+select * from emp where sal not between 35000 and 50000 ;
+
+Display employees whose joining date is between 01-Jan-2021 and 31-Dec-2022.
+select * from emp where joining_d between 01-Jan-2021 and 31-Dec-2022;
+
+Display employees working in IT or HR departments.
+select * from emp where dept in('IT','HR');
+
+Display employees working in Chennai, Bangalore, or Hyderabad.
+select * from emp where loc in ('Chennai','Bangalore','Hyderabad');
+
+Display employees whose salary is IN (32000, 38000, 40000).
+ select * from emp where sal in (32000, 38000, 40000);
+
+Display employees not working in Mumbai.
+ select * from emp where location !='Mumbai';
+
+Display employees whose department is not in IT and HR.
+select * from emp where dept not in ('IT','HR');
+
+Display employees whose designation is not in Developer and Tester.
+select * from emp where designation not in ('Developer','Tester');
+
+Display employees whose name starts with ‘A’.
+ select * from emp where emp_name like 'A%';
+
+Display employees whose salary is NULL.
+select * from emp where sal is null;
+
+Display employees whose email is NULL.
+select * from emp where email is null;
+
+Display employees whose salary is NOT NULL.
+select * from emp where sal is not null;
+
+Display employees whose email is NOT NULL.
+select * from emp where email is not null;
+
+Display employees whose name ends with ‘i’.
+select * from emp where emp_name like '%i';
+
+Display employees whose name contains ‘vi’.
+select * from emp where emp_name like '%vi%';
+
+Display employees whose email contains ‘@company.com’.
+  select * from emp where email '%@company.com%';
+
+Display employees whose designation ends with ‘Engineer’.
+ select * from emp where designation like '%Engineer';
+
+Display all employees ordered by salary ascending.
+SELECT * FROM emp ORDER BY sal ASC;
+
+Display employees ordered by department ASC and salary DESC.
+   SELECT * FROM emp ORDER BY dept ASC, sal DESC; 	
+
+Display employees ordered by location ASC and employee name ASC.
+   SELECT * FROM emp ORDER BY location ASC, emp_name ASC;
+	 	 	           	
+Display employees working in IT department AND salary > 45,000.
+   SELECT * FROM emp WHERE dept = 'IT' AND sal > 45000; 
+
+Display employees working in HR OR Sales department.
+  SELECT * FROM emp WHERE dept IN ('HR','Sales');
+
+Update salary to 50,000 for employees whose salary is NULL.
+  UPDATE emp SET sal = 50000 WHERE sal IS NULL;
+
+Increase salary by 5,000 for all IT employees.
+  UPDATE emp SET sal = sal + 5000 WHERE dept = 'IT';
+
+Display employees having the same name more than once.
+  SELECT emp_name FROM emp GROUP BY emp_name HAVING COUNT(*) > 1;
+
+Display employees having the same salary.
+   SELECT sal FROM emp GROUP BY sal HAVING COUNT(*) > 1;
+
+Display employees working in the same department and same location.
+   SELECT * FROM emp e
+   WHERE (dept, location) IN (
+   SELECT dept, location FROM emp GROUP BY dept, location HAVING COUNT(*) > 1);
+ 
+Update location to Hyderabad for employees working in HR.
+   UPDATE emp SET location = 'Hyderabad' WHERE dept = 'HR';
+
+Display employees NOT working in IT department.
+  SELECT * FROM emp WHERE dept not in ('IT');
+
+Display employees working in IT AND located in Chennai.
+  SELECT * FROM emp WHERE dept = 'IT' AND location = 'Chennai';
+
+Display employees ordered by salary DESC and joining date ASC.
+  SELECT * FROM emp ORDER BY sal DESC, joining_date ASC;
+
+Display all employees ordered by salary descending.
+  SELECT * FROM emp ORDER BY emp_name ASC;
+
+Display all employees ordered by joining date ascending.
+  select * from emp order by joining_d asc;
+
+Display all employees ordered by employee name alphabetically.
+     select * from emp order by emp_name asc;
